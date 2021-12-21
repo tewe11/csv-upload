@@ -2,6 +2,7 @@ parcelRequire = (function (e, r, t, n) {
     var i,
       o = "function" == typeof parcelRequire && parcelRequire,
       u = "function" == typeof require && require;
+    debugger;
     function f(t, n) {
       if (!r[t]) {
         if (!e[t]) {
