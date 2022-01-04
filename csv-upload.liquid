@@ -1,6 +1,4 @@
-
 <style>
-
 :root {
    --main-bg-color: {{ settings.color_primary }};
    --main-color: {{ settings.color_nav_text }};
@@ -29,6 +27,8 @@
 {%- if section.settings.api_key != blank -%}
 {%- endif -%}
 
+{% assign server_address = "https://arxiv.wp-dataanalytics.de/shopify/csvupload" %}
+
 <div>
 <div class="wp-upload--wrapper " id="wpaa5822d2">
       <input id='wp-upload' type="file" class="filepond" name="file" accept=".csv"/>
@@ -37,18 +37,7 @@
 <p>{{section.settings.message}}</p>
 </div>
 <script>
-
-
-function RerenderCart() {
-  $.get("/cart", function (data) {
-    debugger;
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, "text/html");
-    const formSelector = doc.querySelector("form[action='/cart']");
-    $("form[action='/cart']").replaceWith(formSelector);
-  });
-}
-
+  
 function addToCart(data){
     fetch('/cart/add.js', {
           method: 'POST',
@@ -58,7 +47,6 @@ function addToCart(data){
           body: data
 })
 .then(response => response.json())
-//.then(()=>{debugger;RerenderCart()})
 .then(setTimeout(()=>location.href='/cart',3000))
 .catch((error) => {
   console.error('Error:', error);
@@ -79,7 +67,7 @@ FilePond.create(
 );
 FilePond.setOptions({
 server:{
-    url: '{{ section.settings.server_address }}',
+    url: '{{ server_address }}',
     process: {
       url:'/orders/',
       onload: (response)=>{addToCart(response)}
@@ -98,31 +86,7 @@ server:{
   },
   "class": "index-section",
   "settings": [
-    {
-      "id": "server_address",
-      "type": "select",
-      "label": {
-        "de": "Serveradresse",
-        "en": "Server address"
-      },
-      "info": "For the server address [please see]](https://help.shopify.com/manual/online-store/themes/dynamic-checkout)",
-      "options": [
-      {
-        "label":{
-          "en": "local"
-        },
-        "value": "http://127.0.0.1:5005"
-        },
-        {
-        "label":{
-          "en": "remote"
-        },
-        "value": "https://127.0.0.1:5005"
-        }
-
-        ]
-    },
-    {
+     {
       "id": "message",
       "type": "html",
       "label": {
@@ -194,11 +158,6 @@ server:{
         "en": "Error during upload"
       }
     }
-
-
-
-
-
   ]
 }
 {% endschema %}
