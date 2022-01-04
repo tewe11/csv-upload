@@ -6,9 +6,9 @@
            "metafield":
               {
                 "description": "Created by CSV-Upload",
-                "key": 'csv',
+                "key": "csv",
                 "type": "string",
-                "value": 'CSV'
+                "value": "CSV"
            },
            "body_html":""
           }
