@@ -11,7 +11,7 @@ window.csvupload.upload = {
             "moneyFormat": "${{amount}}",
             "moneyWithCurrencyFormat": "${{amount}} USD"
         },
-        "resources": ["https://cdn.jsdelivr.net/gh/tewe11/csv-upload@0.0.1/static/csv-upload.css", "https://cdn.jsdelivr.net/gh/tewe11/csv-upload@0.0.1/static/csv-upload.js"],
+        "resources": ["https://cdn.jsdelivr.net/gh/tewe11/csv-upload@0.0.2/static/csv-upload.css", "https://cdn.jsdelivr.net/gh/tewe11/csv-upload@0.0.2/static/csv-upload.js"],
         "locale": "en",
         "i18n": {
             "upload.config.image.editor.color.exposure": "Exposure",
