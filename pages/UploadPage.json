@@ -1,15 +1,15 @@
 {
-   page: {
-           title:"Upload Page",
-           handle:"csv_upload_page",
-           template_suffix: "upload",
-           metafield:
+   "page": {
+           "title":"Upload Page",
+           "handle":"csv_upload_page",
+           "template_suffix": "upload",
+           "metafield":
               {
-                description: "Created by CSV-Upload",
-                key: 'csv',
-                type: "string",
-                value: 'CSV'
+                "description": "Created by CSV-Upload",
+                "key": 'csv',
+                "type": "string",
+                "value": 'CSV'
            },
-           body_html:""
+           "body_html":""
           }
 }
