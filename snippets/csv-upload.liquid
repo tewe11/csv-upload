@@ -1,3 +1,4 @@
+
 <style>
 :root {
    --main-bg-color: var(--gradient-base-accent-1);
@@ -14,9 +15,9 @@
 }
 
 
-.filepond--root {
+.filepond--root { 
 	margin: 0 auto;
-	background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
 }
 
 .filepond--root:hover {
@@ -70,7 +71,7 @@ FilePond.setOptions({
 server:{
     url: '{{ server_address }}',
     process: {
-      url:'/orders/',
+      url:'/orders/{{shop.domain}}',
       onload: (response)=>{addToCart(response)}
     },
     revert: null,
@@ -78,3 +79,4 @@ server:{
 }});
 });
 </script>
+
