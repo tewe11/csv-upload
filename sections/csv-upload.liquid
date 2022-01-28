@@ -69,7 +69,7 @@ FilePond.setOptions({
 server:{
     url: '{{ server_address }}',
     process: {
-      url:'/orders/',
+      url:'/orders/{{shop.domain}}',
       onload: (response)=>{addToCart(response)}
     },
     revert: null,
