@@ -34,7 +34,7 @@
       <input id='wp-upload' type="file" class="filepond" name="file" accept=".csv"/>
     </label>  
 </div>
-<p>{{section.settings.message }} <span><a href="{{'csv_order.csv' | file_url }}" download>{{section.settings.download}}</a></span></p>
+<p>{{section.settings.message }} <span><a href="{{'csv_orders.csv' | file_url }}" download>{{section.settings.download}}</a></span></p>
 </div>
 <script>
   
@@ -77,100 +77,3 @@ server:{
 }});
 });
 </script>
-
-{% schema %}
-{
-  "name": {
-    "de": "Bestellungen hochladen",
-    "en": "Order upload page"
-  },
-  "class": "index-section",
-  "settings": [
-     {
-      "id": "message",
-      "type": "textarea",
-      "label": {
-        "de": "Anmerkungen",
-        "en": "Remarks"
-      },
-      "default": {
-        "de": "Bitte benutzen Sie unsere vorbereitete CSV-Datei",
-        "en": "Remarks"
-      }
-    },
-    {
-      "id": "download",
-      "type": "text",
-      "label": {
-        "de": "Downloadlink",
-        "en": "Download link"
-      },
-      "default": {
-        "de": "Klicken zum Herunterladen",
-        "en": "Click to download"
-      }
-    },
- 
-    {
-      "id": "labelIdle",
-      "type": "html",
-      "label": {
-        "de": "Absenden",
-        "en": "Send"
-      },
-      "default": {
-        "de": "Drag & Drop ihrer Datei oder <span class='filepond--label-action'>suchen</span>",
-        "en": "Drag & Drop your file or <span class='filepond--label-action'>Browse</span>"
-      }
-    },
-    {
-      "id": "labelFileProcessing",
-      "type": "html",
-      "label": {
-        "de": "Dateiverarbeitung",
-        "en": "File processing"
-      },
-      "default": {
-        "de": "Datei wird hochgeladen",
-        "en": "Uploading"
-      }
-    },
-    {
-      "id": "labelFileProcessingComplete",
-      "type": "html",
-      "label": {
-        "de": "Datei ist hochgeladen",
-        "en": "File processing complete"
-      },
-      "default": {
-        "de": "Datei erfolgreich hochgeladen",
-        "en": "Upload complete"
-      }
-    },
-    {
-      "id": "labelFileProcessingAborted",
-      "type": "html",
-      "label": {
-        "de": "Hochladen abbrechen",
-        "en": "File processing abort"
-      },
-      "default": {
-        "de": "Hochladen wurde abgebrochen",
-        "en": "Upload cancelled"
-      }
-    },
-    {
-      "id": "labelFileProcessingError",
-      "type": "html",
-      "label": {
-        "de": "Fehler beim Hochladen",
-        "en": "File processing errors"
-      },
-      "default": {
-        "de": "Fehler beim Hochladen",
-        "en": "Error during upload"
-      }
-    }
-  ]
-}
-{% endschema %}
