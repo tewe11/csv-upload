@@ -1,7 +1,7 @@
 <style>
 :root {
-   --main-bg-color: {{ settings.color_primary }};
-   --main-color: {{ settings.color_nav_text }};
+   --main-bg-color: var(--gradient-base-accent-1);
+   --main-color: var(--gradient-base-background-1);
    --hover-brightness: 1.2;
 }
 
@@ -16,6 +16,7 @@
 
 .filepond--root {
 	margin: 0 auto;
+	background-color: var(--main-bg-color);
 }
 
 .filepond--root:hover {
