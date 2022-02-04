@@ -1,5 +1,4 @@
-
-<style>
+<style> 
 :root {
    --main-bg-color: var(--gradient-base-accent-1);
    --main-color: var(--gradient-base-background-1);
@@ -13,7 +12,6 @@
 .filepond--panel-root {
   background-color: var(--main-bg-color);
 }
-
 
 .filepond--root { 
 	margin: 0 auto;
@@ -57,26 +55,35 @@ function addToCart(data){
  
 document.addEventListener('FilePond:loaded', e => {
 
-FilePond.create(
+const pond=FilePond.create(
 	document.getElementById('wp-upload'),
 	{
 		labelIdle: "{{ section.settings.labelIdle }}",
     labelFileProcessing: "{{ section.settings.labelFileProcessing }}",
     labelFileProcessingComplete: "{{ section.settings.labelFileProcessingComplete }}",
     labelFileProcessingAborted: "{{ section.settings.labelFileProcessingAborted }}",
-    labelFileProcessingError: "{{ section.settings.labelFileProcessingError }}",
+    labelTapToRetry: "{{ section.settings.labelFileProcessingAborted }}"
+    //labelFileProcessingError: "{{ section.settings.labelFileProcessingError }}",
 	}
 );
-FilePond.setOptions({
-server:{
+let serverResponse = '';
+pond.setOptions({
+  server:{
     url: '{{ server_address }}',
     process: {
       url:'/orders/{{shop.domain}}',
-      onload: (response)=>{addToCart(response)}
+      onload: response=>{addToCart(response)},
+      onerror: response=>{
+        serverResponse = JSON.parse(response)
+      }
     },
     revert: null,
     fetch: null
-}});
+    },
+    labelFileProcessingError: error => {
+        return serverResponse !==''?serverResponse.detail:"{{ section.settings.labelFileProcessingError }}"
+    }
+  }
+);
 });
 </script>
-
